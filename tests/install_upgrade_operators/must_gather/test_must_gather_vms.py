@@ -58,6 +58,7 @@ def kubevirt_architecture_configuration_scope_session(
 @pytest.mark.usefixtures("collected_cluster_must_gather_with_vms")
 @pytest.mark.sno
 class TestMustGatherClusterWithVMs:
+    @pytest.mark.s390x
     @pytest.mark.parametrize(
         ("resource_type", "resource_path", "checks"),
         [
@@ -99,6 +100,7 @@ class TestMustGatherClusterWithVMs:
 
 @pytest.mark.sno
 class TestMustGatherVmDetails:
+    @pytest.mark.s390x
     @pytest.mark.parametrize(
         "extracted_data_from_must_gather_file, format_regex",
         [
@@ -243,6 +245,7 @@ class TestMustGatherVmDetails:
                     f"Gathered data:\n{extracted_data_from_must_gather_file}"
                 )
 
+    @pytest.mark.s390x
     @pytest.mark.parametrize(
         "data_volume_scope_class",
         [
@@ -273,6 +276,7 @@ class TestMustGatherVmDetails:
         )
 
     @pytest.mark.polarion("CNV-10243")
+    @pytest.mark.s390x
     def test_must_gather_and_vm_same_node(
         self,
         must_gather_vm,
@@ -288,6 +292,7 @@ class TestMustGatherVmDetails:
 class TestGuestConsoleLog:
     @pytest.mark.usefixtures("updated_disable_serial_console_log_false", "must_gather_vm_scope_class")
     @pytest.mark.polarion("CNV-10630")
+    @pytest.mark.s390x
     def test_guest_console_logs(
         self,
         must_gather_vm_scope_class,
@@ -302,6 +307,7 @@ class TestGuestConsoleLog:
 @pytest.mark.sno
 class TestMustGatherVmLongNameDetails:
     @pytest.mark.polarion("CNV-9233")
+    @pytest.mark.s390x
     def test_data_collected_from_virt_launcher_long(
         self,
         must_gather_long_name_vm,
@@ -314,7 +320,7 @@ class TestMustGatherVmLongNameDetails:
             nftables_ruleset_from_utility_pods=nftables_ruleset_from_utility_pods,
         )
 
-
+@pytest.mark.s390x
 class TestNoMultipleFilesCollected:
     @pytest.mark.parametrize(
         "vm_for_migration_test, migrated_vm_multiple_times",
@@ -348,6 +354,7 @@ class TestNoMultipleFilesCollected:
 
 
 @pytest.mark.sno
+@pytest.mark.s390x
 class TestControllerRevisionCollected:
     @pytest.mark.polarion("CNV-10978")
     def test_controller_revision_collected(

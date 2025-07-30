@@ -38,7 +38,7 @@ def hco_vm(unprivileged_client, namespace):
         yield vm
         vm.stop(wait=True)
 
-
+@pytest.mark.s390x
 @pytest.mark.parametrize(
     "hyperconverged_with_node_placement",
     [

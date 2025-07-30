@@ -12,7 +12,7 @@ from utilities.infra import get_hyperconverged_resource
 pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.gating, pytest.mark.arm64]
 LOGGER = logging.getLogger(__name__)
 
-
+@pytest.mark.s390x
 @pytest.mark.parametrize(
     "expected_condition_fields",
     [

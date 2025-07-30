@@ -15,7 +15,7 @@ from utilities.virt import get_hyperconverged_kubevirt
 pytestmark = [pytest.mark.sno, pytest.mark.arm64]
 LOGGER = logging.getLogger(__name__)
 
-
+@pytest.mark.s390x
 @pytest.mark.parametrize(
     "resource_name, expected",
     [
