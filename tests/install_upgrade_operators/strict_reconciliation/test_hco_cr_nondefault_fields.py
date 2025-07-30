@@ -53,7 +53,7 @@ def get_resource_current_value(resource_spec, field_to_validate):
         pytest.fail("Bad test configuration. This should never be reached.")
     return current_value
 
-
+@pytest.mark.s390x
 class TestHCONonDefaultFields:
     @pytest.mark.parametrize(
         (

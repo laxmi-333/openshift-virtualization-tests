@@ -17,7 +17,7 @@ pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.arm64]
 
 LOGGER = logging.getLogger(__name__)
 
-
+@pytest.mark.s390x
 class TestNegativeFeatureGates:
     @pytest.mark.parametrize(
         ("hco_with_non_default_feature_gates",),
@@ -110,7 +110,7 @@ class TestNegativeFeatureGates:
             ]["developerConfiguration"][FEATURE_GATES]
         )
 
-
+@pytest.mark.s390x
 class TestHCOOptionalFeatureGatesSuite:
     @pytest.mark.polarion("CNV-6277")
     @pytest.mark.parametrize(

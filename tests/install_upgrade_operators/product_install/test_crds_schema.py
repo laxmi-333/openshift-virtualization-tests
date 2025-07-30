@@ -17,7 +17,7 @@ def crd_operator_resources(request, admin_client):
     """
     return list(CustomResourceDefinition.get(dyn_client=admin_client, group=request.param))
 
-
+@pytest.mark.s390x
 @pytest.mark.parametrize(
     "crd_operator_resources",
     [
