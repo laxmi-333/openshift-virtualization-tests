@@ -58,6 +58,7 @@ from utilities.virt import get_hyperconverged_kubevirt
 pytestmark = [pytest.mark.sno, pytest.mark.post_upgrade, pytest.mark.arm64]
 LOGGER = logging.getLogger(__name__)
 
+
 @pytest.mark.s390x
 class TestOperatorsModify:
     @pytest.mark.parametrize(

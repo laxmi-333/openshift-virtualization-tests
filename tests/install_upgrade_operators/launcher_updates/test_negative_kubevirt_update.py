@@ -15,6 +15,7 @@ KUBEVIRT_NEGATIVE_STRATEGY = {
     WORKLOADUPDATEMETHODS: ["Evict"],
 }
 
+
 @pytest.mark.s390x
 class TestLauncherUpdateNegative:
     @pytest.mark.parametrize(

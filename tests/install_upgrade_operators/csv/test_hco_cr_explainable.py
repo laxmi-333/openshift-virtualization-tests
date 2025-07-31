@@ -16,6 +16,7 @@ def test_hco_cr_explainable(hyperconverged_resource_scope_function):
     command_output = run_command(command=shlex.split("oc explain hyperconvergeds"), check=False)[1]
     assert "HyperConverged is the Schema for the hyperconvergeds API" in command_output
 
+
 @pytest.mark.s390x
 @pytest.mark.parametrize(
     "fields, description",

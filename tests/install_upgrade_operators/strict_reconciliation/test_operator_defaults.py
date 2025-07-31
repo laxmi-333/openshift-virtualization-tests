@@ -26,6 +26,7 @@ pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.gating, pyt
 
 LOGGER = logging.getLogger(__name__)
 
+
 @pytest.mark.s390x
 class TestOperatorsDefaults:
     @pytest.mark.parametrize(

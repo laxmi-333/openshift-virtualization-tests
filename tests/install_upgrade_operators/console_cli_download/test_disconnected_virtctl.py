@@ -30,6 +30,7 @@ def validate_virtctl_versions(virtctl_bin):
         f"Compare error: virtctl client and server versions are not identical: versions={client_and_server_versions}"
     )
 
+
 @pytest.mark.s390x
 class TestDisconnectedVirtctlDownload:
     @pytest.mark.parametrize(
@@ -63,6 +64,7 @@ class TestDisconnectedVirtctlDownload:
         downloaded_and_extracted_virtctl_binary_for_os,
     ):
         assert os.path.exists(downloaded_and_extracted_virtctl_binary_for_os)
+
 
 @pytest.mark.s390x
 class TestDisconnectedVirtctlDownloadAndExecute:
