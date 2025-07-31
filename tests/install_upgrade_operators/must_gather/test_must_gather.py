@@ -134,7 +134,7 @@ class TestMustGatherCluster:
         assert not matching_upstream_namespaces, (
             f"Found namespace errors in must-gather for the following namespaces {matching_upstream_namespaces}"
         )
-        
+
     @pytest.mark.s390x
     @pytest.mark.parametrize(
         "label_selector, resource_namespace",

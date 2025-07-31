@@ -16,6 +16,7 @@ from utilities.virt import get_hyperconverged_kubevirt
 
 pytestmark = [pytest.mark.sno, pytest.mark.arm64]
 
+
 @pytest.mark.s390x
 class TestLauncherUpdateModifyDefault:
     @pytest.mark.parametrize(

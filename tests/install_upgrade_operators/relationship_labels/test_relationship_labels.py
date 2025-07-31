@@ -30,6 +30,7 @@ def expected_label_dictionary(hco_version_scope_class, request):
         deployment_labels[VERSION_LABEL_KEY] = hco_version_scope_class
     return updated_expected_labels_dict
 
+
 @pytest.mark.s390x
 class TestRelationshipLabels:
     @pytest.mark.parametrize(

@@ -23,6 +23,7 @@ from utilities.virt import get_hyperconverged_kubevirt
 
 pytestmark = [pytest.mark.sno, pytest.mark.arm64]
 
+
 @pytest.mark.s390x
 class TestLauncherUpdateAll:
     @pytest.mark.parametrize(
@@ -69,6 +70,7 @@ class TestLauncherUpdateAll:
             )
         else:
             raise AssertionError(f"Unexpected resource name: {resource_name}")
+
 
 @pytest.mark.s390x
 class TestCustomWorkLoadStrategy:

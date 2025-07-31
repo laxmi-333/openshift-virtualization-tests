@@ -93,6 +93,7 @@ def test_csv_properties(csv_scope_session):
     assert annotations.get("capabilities") == "Deep Insights"
     assert annotations.get("support") == "Red Hat"
 
+
 @pytest.mark.s390x
 @pytest.mark.parametrize(
     "expected_feature",
