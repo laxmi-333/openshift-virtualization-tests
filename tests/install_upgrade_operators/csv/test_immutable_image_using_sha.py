@@ -2,6 +2,7 @@ import pytest
 
 pytestmark = [pytest.mark.sno, pytest.mark.s390x]
 
+
 @pytest.mark.polarion("CNV-4751")
 def test_immutable_image_using_sha(kubevirt_package_manifest_current_channel):
     """
