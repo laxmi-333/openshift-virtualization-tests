@@ -21,7 +21,7 @@ from utilities.hco import (
     wait_for_hco_conditions,
 )
 
-pytestmark = [pytest.mark.arm64]
+pytestmark = [pytest.mark.arm64, pytest.mark.s390x]
 
 
 @pytest.fixture(scope="class")
@@ -46,7 +46,6 @@ def json_patched_cdi(admin_client, hco_namespace, prometheus, hyperconverged_res
 )
 class TestKubevirtJsonPatch:
     @pytest.mark.polarion("CNV-8717")
-    @pytest.mark.s390x
     def test_cdi_json_patch(
         self,
         admin_client,
@@ -67,7 +66,6 @@ class TestKubevirtJsonPatch:
         )
 
     @pytest.mark.polarion("CNV-9707")
-    @pytest.mark.s390x
     def test_cdi_json_patch_metrics(self, prometheus, kubevirt_all_unsafe_modification_metrics_before_test):
         before_value = filter_metric_by_component(
             metrics=kubevirt_all_unsafe_modification_metrics_before_test,
@@ -82,6 +80,5 @@ class TestKubevirtJsonPatch:
         )
 
     @pytest.mark.polarion("CNV-9706")
-    @pytest.mark.s390x
     def test_cdi_json_patch_alert(self, prometheus):
         wait_for_alert(prometheus=prometheus, alert_name=ALERT_NAME, component_name=COMPONENT_CDI)

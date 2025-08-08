@@ -33,7 +33,7 @@ from utilities.hco import (
     wait_for_hco_conditions,
 )
 
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.arm64]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.arm64, pytest.mark.s390x]
 
 LOGGER = logging.getLogger(__name__)
 TLS_POLICIES_WITHOUT_CUSTOM_POLICY = {
@@ -94,7 +94,6 @@ def updated_cr_with_custom_crypto_policy(
     assert not is_hco_tainted(admin_client=admin_client, hco_namespace=hco_namespace.name)
 
 
-@pytest.mark.s390x
 @pytest.mark.parametrize(
     "updated_cr_with_custom_crypto_policy",
     [

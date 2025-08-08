@@ -11,7 +11,7 @@ from tests.install_upgrade_operators.node_component.utils import (
     verify_components_exist_only_on_selected_node,
 )
 
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.gating, pytest.mark.arm64]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.gating, pytest.mark.arm64, pytest.mark.s390x]
 
 LOGGER = logging.getLogger(__name__)
 
@@ -27,7 +27,6 @@ LOGGER = logging.getLogger(__name__)
 class TestCreateHCOWithNodePlacement:
     @pytest.mark.polarion("CNV-5368")
     @pytest.mark.dependency(name="test_hco_cr_with_node_placement")
-    @pytest.mark.s390x
     def test_hco_cr_with_node_placement(
         self,
         admin_client,
@@ -64,7 +63,6 @@ class TestCreateHCOWithNodePlacement:
 
     @pytest.mark.polarion("CNV-5369")
     @pytest.mark.dependency(depends=["test_hco_cr_with_node_placement"])
-    @pytest.mark.s390x
     def test_node_placement_propagated_to_ssp_cr(
         self,
         ssp_cr_spec,
@@ -83,7 +81,6 @@ class TestCreateHCOWithNodePlacement:
 
     @pytest.mark.polarion("CNV-5382")
     @pytest.mark.dependency(depends=["test_hco_cr_with_node_placement"])
-    @pytest.mark.s390x
     def test_node_placement_propagated_to_network_addons_cr(
         self,
         network_addon_config_spec_placement,
@@ -126,7 +123,6 @@ class TestCreateHCOWithNodePlacement:
 
     @pytest.mark.polarion("CNV-5383")
     @pytest.mark.dependency(depends=["test_hco_cr_with_node_placement"])
-    @pytest.mark.s390x
     def test_node_placement_propagated_to_kubevirt_cr(
         self,
         kubevirt_hyperconverged_spec_scope_function,
@@ -162,7 +158,6 @@ class TestCreateHCOWithNodePlacement:
 
     @pytest.mark.polarion("CNV-5384")
     @pytest.mark.dependency(depends=["test_hco_cr_with_node_placement"])
-    @pytest.mark.s390x
     def test_node_placement_propagated_to_cdi_cr(
         self,
         cdi_spec,

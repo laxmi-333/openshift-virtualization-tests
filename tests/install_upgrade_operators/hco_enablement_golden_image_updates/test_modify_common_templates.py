@@ -21,7 +21,7 @@ from utilities.constants import (
 )
 from utilities.hco import ResourceEditorValidateHCOReconcile
 
-pytestmark = [pytest.mark.gating, pytest.mark.arm64]
+pytestmark = [pytest.mark.gating, pytest.mark.arm64, pytest.mark.s390x]
 
 COMMON_TEMPLATE_DISABLE = {DATA_IMPORT_CRON_ENABLE: "false"}
 COMMON_TEMPLATE_ENABLE = {DATA_IMPORT_CRON_ENABLE: "true"}
@@ -114,7 +114,6 @@ def updated_common_template(
     assert not modified_common_templates, f"Following templates were not reverted back: {modified_common_templates}"
 
 
-@pytest.mark.s390x
 class TestModifyCommonTemplateSpec:
     @pytest.mark.parametrize(
         "updated_common_template",
@@ -217,7 +216,6 @@ class TestModifyCommonTemplateSpec:
         assert not errors, "".join(errors)
 
 
-@pytest.mark.s390x
 @pytest.mark.usefixtures("common_templates_scope_session")
 class TestCommonTemplatesEnableDisable:
     @pytest.mark.parametrize(

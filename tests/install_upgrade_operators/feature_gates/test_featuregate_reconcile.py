@@ -19,11 +19,10 @@ from utilities.constants import (
     KUBEVIRT_KUBEVIRT_HYPERCONVERGED,
 )
 
-pytestmark = pytest.mark.sno
+pytestmark = [pytest.mark.sno, pytest.mark.s390x]
 
 
 class TestHardcodedFeatureGates:
-    @pytest.mark.s390x
     @pytest.mark.parametrize(
         ("updated_resource", "expected_value", "key_name"),
         [

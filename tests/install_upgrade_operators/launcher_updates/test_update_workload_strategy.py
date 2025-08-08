@@ -21,10 +21,9 @@ from tests.install_upgrade_operators.utils import wait_for_spec_change
 from utilities.hco import get_hco_spec
 from utilities.virt import get_hyperconverged_kubevirt
 
-pytestmark = [pytest.mark.sno, pytest.mark.arm64]
+pytestmark = [pytest.mark.sno, pytest.mark.arm64, pytest.mark.s390x]
 
 
-@pytest.mark.s390x
 class TestLauncherUpdateAll:
     @pytest.mark.parametrize(
         "resource_name, expected",
@@ -72,7 +71,6 @@ class TestLauncherUpdateAll:
             raise AssertionError(f"Unexpected resource name: {resource_name}")
 
 
-@pytest.mark.s390x
 class TestCustomWorkLoadStrategy:
     @pytest.mark.parametrize(
         "updated_hco_cr, expected",

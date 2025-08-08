@@ -15,7 +15,7 @@ from tests.install_upgrade_operators.crypto_policy.utils import (
 from utilities.constants import TLS_SECURITY_PROFILE
 
 LOGGER = logging.getLogger(__name__)
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.s390x]
 
 
 @pytest.fixture()
@@ -41,7 +41,6 @@ def updated_hco_crypto_policy(
 
 
 @pytest.mark.polarion("CNV-9331")
-@pytest.mark.s390x
 def test_set_hco_crypto_policy(
     cnv_crypto_policy_matrix__function__,
     updated_hco_crypto_policy,

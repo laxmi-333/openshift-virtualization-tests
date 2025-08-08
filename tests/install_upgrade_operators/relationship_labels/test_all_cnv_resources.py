@@ -11,7 +11,7 @@ from tests.install_upgrade_operators.utils import (
 from utilities.exceptions import ResourceValueError
 from utilities.infra import is_jira_open
 
-pytestmark = pytest.mark.arm64
+pytestmark = [pytest.mark.arm64, pytest.mark.s390x]
 
 ALLOWLIST_STRING_LIST = [
     "dockercfg",
@@ -88,7 +88,6 @@ def cnv_resources(hco_namespace):
 
 
 @pytest.mark.polarion("CNV-10307")
-@pytest.mark.s390x
 def test_relationship_labels_all_cnv_resources(
     ocp_resources_submodule_list, admin_client, cnv_resources, hco_namespace
 ):

@@ -12,6 +12,7 @@ from utilities.hco import ResourceEditorValidateHCOReconcile
 
 FEATUREGATE_NAME_KEY_STR = "featuregate_name"
 
+pytestmark = pytest.mark.s390x
 
 @pytest.fixture()
 def updated_fg_hco(
@@ -26,7 +27,6 @@ def updated_fg_hco(
         yield
 
 
-@pytest.mark.s390x
 @pytest.mark.parametrize(
     ("updated_fg_hco", "kubevirt_featuregate_name", "hco_featuregate"),
     [

@@ -21,7 +21,7 @@ from utilities.constants import (
 )
 from utilities.hco import update_hco_templates_spec, wait_for_hco_conditions
 
-pytestmark = [pytest.mark.arm64]
+pytestmark = [pytest.mark.arm64, pytest.mark.s390x]
 
 INVALID_ANNOTATION = (
     r"admission webhook.* denied the request: the dataimportcrontemplate.kubevirt.io/enable "
@@ -71,7 +71,6 @@ def updated_hco_cr_custom_template_disable(
 
 
 @pytest.mark.polarion("CNV-8731")
-@pytest.mark.s390x
 def test_custom_template_no_disable(
     updated_hco_cr_custom_template_disable,
     hyperconverged_status_templates_scope_function,
@@ -90,7 +89,6 @@ def test_custom_template_no_disable(
 
 
 @pytest.mark.polarion("CNV-8709")
-@pytest.mark.s390x
 def test_disable_template_annotation_value(admin_client, hco_namespace, editor_hyperconverged_custom_template):
     try:
         with pytest.raises(

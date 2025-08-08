@@ -10,7 +10,7 @@ KUBEVIRT_CPU_MODEL_KEY = "cpuModel"
 HOST_PASSTHROUGH = "host-passthrough"
 
 
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.arm64]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.arm64, pytest.mark.s390x]
 
 
 def assert_updated_hco_default_cpu_model(hco_resource, expected_cpu_model):
@@ -92,7 +92,6 @@ def hco_with_default_cpu_model_set(
 
 
 @pytest.mark.polarion("CNV-9024")
-@pytest.mark.s390x
 def test_default_value_for_cpu_model(
     hco_spec_scope_module,
     kubevirt_hyperconverged_spec_scope_module,
@@ -120,7 +119,6 @@ def test_default_value_for_cpu_model(
 
 
 @pytest.mark.polarion("CNV-9025")
-@pytest.mark.s390x
 def test_set_hco_default_cpu_model(
     hyperconverged_resource_scope_function,
     hco_with_default_cpu_model_set,
@@ -147,7 +145,6 @@ def test_set_hco_default_cpu_model(
 
 
 @pytest.mark.polarion("CNV-9026")
-@pytest.mark.s390x
 def test_set_hco_default_cpu_model_with_existing_vm(
     hyperconverged_resource_scope_function,
     fedora_vm_scope_module,

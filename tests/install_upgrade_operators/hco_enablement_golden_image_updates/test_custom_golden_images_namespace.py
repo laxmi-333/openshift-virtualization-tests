@@ -31,7 +31,7 @@ from utilities.storage import get_data_sources_managed_by_data_import_cron
 LOGGER = logging.getLogger(__name__)
 COMMON_BOOT_IMAGE_NAMESPACE_STR = "commonBootImageNamespace"
 
-pytestmark = [pytest.mark.arm64]
+pytestmark = [pytest.mark.arm64, pytest.mark.s390x]
 
 
 def get_templates_resources_names_dict(templates):
@@ -162,7 +162,6 @@ def updated_common_templates_non_existent_ns(
 
 
 @pytest.mark.gating
-@pytest.mark.s390x
 @pytest.mark.usefixtures("updated_common_template_custom_ns")
 class TestDefaultCommonTemplates:
     @pytest.mark.parametrize(
@@ -224,7 +223,6 @@ class TestDefaultCommonTemplates:
 
 
 @pytest.mark.polarion("CNV-11631")
-@pytest.mark.s390x
 def test_non_existent_namespace(
     admin_client,
     hco_namespace,

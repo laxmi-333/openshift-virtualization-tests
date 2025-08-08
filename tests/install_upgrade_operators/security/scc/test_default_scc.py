@@ -7,7 +7,7 @@ Tests to check, the default Security Context Constraint
 import pytest
 from ocp_resources.security_context_constraints import SecurityContextConstraints
 
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.gating, pytest.mark.arm64]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.gating, pytest.mark.arm64, pytest.mark.s390x]
 
 
 @pytest.fixture(scope="module")
@@ -16,7 +16,6 @@ def privileged_scc():
 
 
 @pytest.mark.polarion("CNV-4439")
-@pytest.mark.s390x
 def test_users_in_privileged_scc(privileged_scc):
     """
     Validate that Users in privileged SCC is not updated after installing CNV

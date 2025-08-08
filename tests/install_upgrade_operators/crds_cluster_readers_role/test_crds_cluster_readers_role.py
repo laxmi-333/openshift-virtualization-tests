@@ -15,7 +15,7 @@ MTV_VOLUME_POPULATOR_CRDS = [
 ]
 
 
-pytestmark = [pytest.mark.sno, pytest.mark.gating, pytest.mark.arm64]
+pytestmark = [pytest.mark.sno, pytest.mark.gating, pytest.mark.arm64, pytest.mark.s390x]
 
 
 @pytest.fixture()
@@ -37,7 +37,6 @@ def crds(admin_client):
 
 
 @pytest.mark.polarion("CNV-8263")
-@pytest.mark.s390x
 def test_crds_cluster_readers_role(crds):
     LOGGER.info(f"CRds: {crds}")
     cluster_readers = "system:cluster-readers"

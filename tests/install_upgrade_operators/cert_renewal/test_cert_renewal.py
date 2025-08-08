@@ -12,7 +12,7 @@ from tests.install_upgrade_operators.constants import (
 )
 from utilities.constants import QUARANTINED
 
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.s390x]
 
 LOGGER = logging.getLogger(__name__)
 
@@ -23,7 +23,6 @@ LOGGER = logging.getLogger(__name__)
 )
 class TestCertRotation:
     @pytest.mark.polarion("CNV-6203")
-    @pytest.mark.s390x
     @pytest.mark.parametrize(
         "hyperconverged_resource_certconfig_change",
         [

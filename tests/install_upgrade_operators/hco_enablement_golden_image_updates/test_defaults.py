@@ -4,12 +4,11 @@ import pytest
 
 from utilities.constants import SSP_CR_COMMON_TEMPLATES_LIST_KEY_NAME
 
-pytestmark = [pytest.mark.gating, pytest.mark.arm64]
+pytestmark = [pytest.mark.gating, pytest.mark.arm64, pytest.mark.s390x]
 
 
 @pytest.mark.usefixtures("hyperconverged_spec_scope_session", "hyperconverged_status_scope_session")
 @pytest.mark.polarion("CNV-7504")
-@pytest.mark.s390x
 def test_data_import_schedule_default_in_hco_cr(
     data_import_schedule,
 ):
@@ -19,7 +18,6 @@ def test_data_import_schedule_default_in_hco_cr(
 
 
 @pytest.mark.polarion("CNV-8168")
-@pytest.mark.s390x
 def test_default_hco_cr_image_streams(
     admin_client,
     golden_images_namespace,
@@ -38,7 +36,6 @@ def test_default_hco_cr_image_streams(
 
 
 @pytest.mark.polarion("CNV-8935")
-@pytest.mark.s390x
 def test_no_data_import_template_in_hco_spec(
     hyperconverged_spec_scope_session,
 ):
@@ -48,7 +45,6 @@ def test_no_data_import_template_in_hco_spec(
 
 
 @pytest.mark.polarion("CNV-8703")
-@pytest.mark.s390x
 def test_data_import_template_defaults_hco_status(
     hyperconverged_status_scope_session,
     hyperconverged_spec_scope_session,

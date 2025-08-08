@@ -16,7 +16,7 @@ from utilities.constants import (
     LINUX_BRIDGE,
 )
 
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.gating, pytest.mark.arm64]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.gating, pytest.mark.arm64, pytest.mark.s390x]
 
 
 LOGGER = logging.getLogger(__name__)
@@ -44,7 +44,6 @@ def verify_cnv_pods_with_scc(cnv_pods):
 
 
 @pytest.mark.polarion("CNV-4438")
-@pytest.mark.s390x
 def test_openshift_io_scc_exists(cnv_pods):
     """
     Validate that Pods in openshift-cnv have 'openshift.io/scc' annotation
@@ -65,7 +64,6 @@ def pods_not_allowlisted_or_anyuid(cnv_pods):
 
 
 @pytest.mark.polarion("CNV-4211")
-@pytest.mark.s390x
 def test_pods_scc_in_allowlist(pods_not_allowlisted_or_anyuid):
     """
     Validate that Pods in openshift-cnv have SCC from a predefined allowlist

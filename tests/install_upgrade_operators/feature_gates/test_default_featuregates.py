@@ -25,7 +25,7 @@ from tests.install_upgrade_operators.utils import (
 from utilities.constants import CDI_KUBEVIRT_HYPERCONVERGED, KUBEVIRT_HCO_NAME
 from utilities.infra import is_jira_open
 
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.s390x]
 
 LOGGER = logging.getLogger(__name__)
 
@@ -40,7 +40,6 @@ def resource_object_value_by_key(request):
     return get_resource_key_value(resource=resource_obj, key_name=request.param.get(KEY_NAME_STR))
 
 
-@pytest.mark.s390x
 @pytest.mark.parametrize(
     ("expected", "resource_object_value_by_key"),
     [

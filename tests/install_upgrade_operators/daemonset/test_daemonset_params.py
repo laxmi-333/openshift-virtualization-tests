@@ -3,7 +3,7 @@ import pytest
 from utilities.constants import ALL_CNV_DAEMONSETS, ALL_CNV_DAEMONSETS_NO_HPP_CSI
 from utilities.infra import get_daemonsets
 
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.arm64]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.arm64, pytest.mark.s390x]
 
 
 @pytest.fixture(scope="module")
@@ -13,7 +13,6 @@ def cnv_daemonset_names(admin_client, hco_namespace):
 
 @pytest.mark.gating
 @pytest.mark.polarion("CNV-8509")
-@pytest.mark.s390x
 def test_no_new_cnv_daemonset_added(sno_cluster, cnv_daemonset_names):
     """
     Since cnv deployments image validations are done via polarion parameterization, this test has been added

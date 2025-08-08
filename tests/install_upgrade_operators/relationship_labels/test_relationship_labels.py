@@ -14,7 +14,7 @@ from tests.install_upgrade_operators.relationship_labels.utils import (
 )
 from utilities.constants import VERSION_LABEL_KEY
 
-pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.gating, pytest.mark.arm64]
+pytestmark = [pytest.mark.post_upgrade, pytest.mark.sno, pytest.mark.gating, pytest.mark.arm64, pytest.mark.s390x]
 LOGGER = logging.getLogger(__name__)
 
 
@@ -31,7 +31,6 @@ def expected_label_dictionary(hco_version_scope_class, request):
     return updated_expected_labels_dict
 
 
-@pytest.mark.s390x
 class TestRelationshipLabels:
     @pytest.mark.parametrize(
         "expected_label_dictionary",
