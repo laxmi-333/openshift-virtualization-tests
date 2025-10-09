@@ -106,7 +106,11 @@ def expand_pvc(dv, size_change):
 
 
 def get_resize_count(vm):
-    commands = shlex.split("dmesg | grep -c 'new size' || true")
+    cmd = "dmesg | grep -c 'new size' || true"
+    # Fedora requires sudo privileges to execute the dmesg command.
+    if vm.os_flavor == "fedora":
+        cmd = "sudo " + cmd
+    commands = shlex.split(cmd)
     return int(run_ssh_commands(host=vm.ssh_exec, commands=commands)[0])
 
 
